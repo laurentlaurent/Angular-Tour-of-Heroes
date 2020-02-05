@@ -14,6 +14,10 @@ export class HeroService {
 
   constructor() { }
 
+  // This function should be a asynchronous signature function
+  // Right now, it's fine since it pulls from mock_heroes
+  // however, if it was pulling from a remote server
+  // the browser would block until response... --> Observable
   getHeroes(): Hero[] {
     return HEROES;
   }
