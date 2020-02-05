@@ -16,8 +16,17 @@ export class HeroesComponent implements OnInit {
     this.selectedHero = hero;
   }
 
+  // This was when heroService was synchronous
+  // getHeroes(): void {
+  //   this.heroes = this.heroService.getHeroes();
+  // }
+
+  // With type Observable<Hero[]>
   getHeroes(): void {
-    this.heroes = this.heroService.getHeroes();
+    // Now it integrates a busy-wait
+    this.heroService.getHeroes().subscribe(
+      heroes => this.heroes = heroes
+      );
   }
 
   constructor(private heroService: HeroService) { }

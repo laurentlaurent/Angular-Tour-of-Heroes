@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 
 import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
@@ -18,7 +19,11 @@ export class HeroService {
   // Right now, it's fine since it pulls from mock_heroes
   // however, if it was pulling from a remote server
   // the browser would block until response... --> Observable
-  getHeroes(): Hero[] {
-    return HEROES;
+  // getHeroes(): Hero[] {
+  //   return HEROES;
+  // }
+
+  getHeroes(): Observable<Hero[]> {
+    return of(HEROES); // is of type Observable<Hero[]>
   }
 }
