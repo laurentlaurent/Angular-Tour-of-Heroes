@@ -3,11 +3,19 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HeroesComponent } from './heroes/heroes.component';
 
-// Path: /heroes will create a HeroesComponent and display
+import { HeroesComponent } from './heroes/heroes.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+
+
 const routes: Routes = [
-  { path: 'heroes', component: HeroesComponent}
+  // Add a default route
+  // pathMatch 'full' means it only redirects if the path is exactly ''
+  { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
+  // Path: /heroes will create a HeroesComponent and display
+  { path: 'heroes', component: HeroesComponent},
+  // Path: /dashboard will create a DashboardComponent and display
+  { path: 'dashboard', component: DashboardComponent},
 ];
 
 @NgModule({
