@@ -8,6 +8,7 @@ import { from } from 'rxjs';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 @NgModule({
   // Every component must be declared in exactly 1 NgModule
@@ -16,6 +17,7 @@ import { AppRoutingModule } from './app-routing.module';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
+    DashboardComponent,
   ],
   imports: [
     BrowserModule,
