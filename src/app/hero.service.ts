@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+
 import { Observable, of } from 'rxjs';
 
 import { Hero } from './hero';
@@ -26,7 +27,15 @@ export class HeroService {
 
   getHeroes(): Observable<Hero[]> {
     // TODO: send the message _after_ fetching the heroes
-    this.messageService.add('HeroSevice: fetched heroes');
+    this.messageService.add(`HeroSevice: fetched heroes`);
     return of(HEROES); // is of type Observable<Hero[]>
+  }
+
+  // Backtick is Javascript's template literal for embedding the id
+  // Template Literal: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+  getHero(id: number): Observable<Hero> {
+    // TODO: send the message _after_ fetching the hero
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of (HEROES.find(hero => hero.id === id));
   }
 }

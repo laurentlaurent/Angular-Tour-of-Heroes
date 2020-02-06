@@ -1,21 +1,23 @@
 // Imports RouterModule and Routes so that app can have routing
 // Imports HeroesComponent will give the router somewhere to go once you configure the routes
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { HeroesComponent } from './heroes/heroes.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 
 
 const routes: Routes = [
   // Add a default route
   // pathMatch 'full' means it only redirects if the path is exactly ''
   { path: '', redirectTo: '/dashboard', pathMatch: 'full'},
-  // Path: /heroes will create a HeroesComponent and display
-  { path: 'heroes', component: HeroesComponent},
   // Path: /dashboard will create a DashboardComponent and display
   { path: 'dashboard', component: DashboardComponent},
+  // :id replaces link via the id property
+  { path: 'detail/:id', component: HeroDetailComponent},
+  // Path: /heroes will create a HeroesComponent and display
+  { path: 'heroes', component: HeroesComponent},
 ];
 
 @NgModule({

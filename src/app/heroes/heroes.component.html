@@ -3,16 +3,20 @@
 <!-- Have to add FormsModule for it to work -->
 <!-- (click) are events -->
 
-<h2>
-  <ul class='heroes'>
-    <li *ngFor="let hero of heroes"
-      [class.selected]="hero === selectedHero"
-      (click)="onSelect(hero)" >
+<h2> My Heroes </h2>
+<ul class="heroes">
+  <li *ngFor="let hero of heroes">
+    <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
-    </li>
-  </ul>
-</h2>
+    </a>
+  </li>
+</ul>
 
-<!-- Property binding -->
-<!-- Giving selectedHero to the @Input() hero: hero -->
-<app-hero-detail [hero]="selectedHero"></app-hero-detail>
+<!-- Previously
+<ul class="heroes">
+  <li *ngFor="let hero of heroes"
+    [class.selected]="hero === selectedHero"
+    (click)="onSelect(hero)">
+    <span class="badge">{{hero.id}}</span> {{hero.name}}
+  </li>
+</ul> -->
