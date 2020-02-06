@@ -3,6 +3,7 @@ import { Observable, of } from 'rxjs';
 
 import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
+import { MessageService } from './message.service';
 
 // @Injectable decorator marks this class as one
 // that participates in the dependency injection system
@@ -13,7 +14,7 @@ import { HEROES } from './mock-heroes';
 })
 export class HeroService {
 
-  constructor() { }
+  constructor(private messageService: MessageService) { }
 
   // This function should be a asynchronous signature function
   // Right now, it's fine since it pulls from mock_heroes
@@ -24,6 +25,8 @@ export class HeroService {
   // }
 
   getHeroes(): Observable<Hero[]> {
+    // TODO: send the message _after_ fetching the heroes
+    this.messageService.add('HeroSevice: fetched heroes');
     return of(HEROES); // is of type Observable<Hero[]>
   }
 }
