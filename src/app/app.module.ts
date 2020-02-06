@@ -7,6 +7,7 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { from } from 'rxjs';
 import { HeroDetailComponent } from './hero-detail/hero-detail.component';
 import { MessagesComponent } from './messages/messages.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   // Every component must be declared in exactly 1 NgModule
@@ -19,6 +20,7 @@ import { MessagesComponent } from './messages/messages.component';
   imports: [
     BrowserModule,
     FormsModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

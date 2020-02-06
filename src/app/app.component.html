@@ -1,4 +1,10 @@
 <!-- Interpolation Syntax -->
 <h1>{{title}}</h1>
-<app-heroes></app-heroes>
+
+<nav>
+  <!-- Weirdly, the routerLink properties is not [] -->
+  <a routerLink="/heroes">Heroes</a>
+</nav>
+<!-- Router outlet tells router where to display the routed views -->
+<router-outlet></router-outlet>
 <app-messages></app-messages>
